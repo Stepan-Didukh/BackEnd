@@ -13,6 +13,6 @@ app.set('views',path.join(__dirname,'static'));
 
 
 http.listen(5000,()=>{
-    console.log('5000');
+    console.log('Ready . . .');
 });
 
