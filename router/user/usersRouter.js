@@ -4,3 +4,5 @@ const {user , pages} = require('../../controllers');
 router.post('/', user.createUser);
 
 router.get('/', pages.register);
+
+module.exports = router;
