@@ -6,8 +6,6 @@ module.exports = async (req, res) => {
         const creatingData = req.body;
         const appRoot = global.appRoot;
         creatingData.password = await passwordHashed(creatingData.password);
-
-
         const userToCreate = req.body;
 
         const {user_id} = req.body;
