@@ -7,9 +7,10 @@ db.setModels();
 app.use(express.json());
 app.use(express.urlencoded({extended:true}));
 
-let { usersRouter } = require('./router');
+let { usersRouter,authRouter } = require('./router');
 
 app.use('/user',usersRouter);
+app.use('/auth',authRouter);
 
 http.listen(5000,()=>{
     console.log('Ready . . .');
