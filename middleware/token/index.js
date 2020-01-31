@@ -1,1 +1,1 @@
-module.exports.checkAccesTokenMddleware = require('./check-acces-token.middleware');
+module.exports.checkAccessTokenMddleware = require('./check-access-token.middleware');

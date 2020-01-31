@@ -1,2 +1,3 @@
-module.exports.usersRouter = require('./user');
-module.exports.authRouter = require('./auth');
+module.exports.usersRouter = require('./userRouter');
+module.exports.authRouter = require('./authRouter');
+module.exports.adminRouter = require('./adminRouter');
