@@ -1,18 +1,31 @@
 const express = require('express');
+const socketio = require('socket.io');
+const http = require('http');
+
+const PORT = process.env.PORT || 5000;
+
 const app = express();
-const http = require('http').createServer(app);
+const server = http.createServer(app);
+const io = socketio(server);
 const db = require('./dataBase').getInstance();
+
 db.setModels();
 
 app.use(express.json());
 app.use(express.urlencoded({extended:true}));
+
+io.on('connection', (socket) =>{
+    console.log('We have a new connection!');
+
+    socket.on('disconnect', ()=> {
+        console.log('User had left!');
+    })
+});
 
 let { usersRouter,authRouter,adminRouter } = require('./router');
 
 app.use('/user',usersRouter);
 app.use('/auth',authRouter);
 app.use('/admin',adminRouter);
-http.listen(5000,()=>{
-    console.log('Ready . . .');
-});
 
+server.listen(PORT, ()=> console.log(`Server has been started on port ${PORT}`))
