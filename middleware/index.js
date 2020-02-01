@@ -1,2 +1,2 @@
-module.exports.user = require('./user');
-module.exports.token = require('./token');
+module.exports.user = require('./userMiddleware');
+module.exports.token = require('./tokenMiddleware');

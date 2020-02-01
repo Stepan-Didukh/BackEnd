@@ -13,7 +13,7 @@ module.exports = async ( req, res, next) => {
 
         const token = tokinazer(checkLoginUser.dataValues);
 
-        // req.tokens = token;
+        // req.tokens = tokenMiddleware;
         res.json(token);
         next();
 

@@ -1,7 +1,6 @@
 const dataBase = require('../../dataBase').getInstance();
 const bcrypt = require('bcryptjs');
-const {tokinazer} = require("../../helpers");
-const {oauthService}= require('../../service');
+// const {oauthService}= require('../../service');
 module.exports = async (email, password) => {
     const UserModel = dataBase.getModel('User');
 
@@ -26,13 +25,13 @@ module.exports = async (email, password) => {
     });
     if (!correctPassword) throw new Error('Wrong password');
 
-    const  tokens = tokinazer();
+    // const  tokens = tokinazer();
 
 
-    oauthService.insertTokenPair(
-        {
-            user_id: user.id,...tokens
-        });
+    // oauthService.insertTokenPair(
+    //     {
+    //         user_id: userMiddleware.id,...tokens
+    //     });
 
     return user;
 };
