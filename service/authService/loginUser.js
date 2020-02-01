@@ -1,20 +1,22 @@
 const dataBase = require('../../dataBase').getInstance();
 const bcrypt = require('bcryptjs');
 // const {oauthService}= require('../../service');
-module.exports = async (email, password) => {
+module.exports = async (name,email,password ) => {
     const UserModel = dataBase.getModel('User');
+
 
     let user = await UserModel.findOne({
         where: {
+            name,
             email
         },
+
     });
 
     if (!user) {
         throw new Error('Incorrect values');
     }
-
-    const correctPassword = await new Promise((resolve, reject) => {
+     password = await new Promise((resolve, reject) => {
         bcrypt.compare(password, user.password, (err, result) => {
             if (err) {
                 console.log(err);
@@ -23,7 +25,7 @@ module.exports = async (email, password) => {
             return resolve(result);
         });
     });
-    if (!correctPassword) throw new Error('Wrong password');
+    if (!password) throw new Error('Wrong password');
 
     // const  tokens = tokinazer();
 

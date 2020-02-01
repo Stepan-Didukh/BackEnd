@@ -3,9 +3,9 @@ const { tokinazer } = require('../../helpers');
 
 module.exports = async ( req, res, next) => {
     try {
-        const {  email, password } = req.body;
+        const { name, email, password } = req.body;
 
-        const checkLoginUser = await authService.loginUser( email, password);
+        const checkLoginUser = await authService.loginUser(name, email, password);
 
         if (!checkLoginUser) {
             throw new Error('Incorrect data')
