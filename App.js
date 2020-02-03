@@ -12,20 +12,20 @@ const db = require('./dataBase').getInstance();
 db.setModels();
 
 app.use(express.json());
-app.use(express.urlencoded({extended:true}));
+app.use(express.urlencoded({extended: true}));
 
-io.on('connection', (socket) =>{
+io.on('connection', (socket) => {
     console.log('We have a new connection!');
 
-    socket.on('disconnect', ()=> {
+    socket.on('disconnect', () => {
         console.log('User had left!');
     })
 });
 
-let { usersRouter,authRouter,adminRouter } = require('./router');
+let {usersRouter, authRouter, adminRouter,roomsRouter} = require('./router');
 
-app.use('/user',usersRouter);
-app.use('/auth',authRouter);
-app.use('/admin',adminRouter);
-
-server.listen(PORT, ()=> console.log(`Server has been started on port ${PORT}`))
+app.use('/user', usersRouter);
+app.use('/auth', authRouter);
+app.use('/admin', adminRouter);
+app.use('/room',roomsRouter);
+server.listen(PORT, () => console.log(`Server has been started on port ${PORT}`));
