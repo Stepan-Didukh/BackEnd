@@ -8,7 +8,7 @@ module.exports = async (req, res) => {
         const roomToCreate = req.body;
         const {room_id} = req.body;
 
-        roomToCreate.status_id = ROOM_STATUS.ACTIVE;
+        roomToCreate.status_id = ROOM_STATUS.RESERVED;
 
         await roomsService.createRoom(roomToCreate, room_id);
 
