@@ -29,11 +29,12 @@ io.on('connection', (socket) => {
     })
 });
 
-let {usersRouter, authRouter, adminRouter,roomsRouter} = require('./router');
+let {usersRouter, authRouter, adminRouter, roomsRouter} = require('./router');
 
 app.use('/user', usersRouter);
 app.use('/auth', authRouter);
 app.use('/admin', adminRouter);
-app.use('/room',roomsRouter);
+app.use('/room', roomsRouter);
+
 
 server.listen(PORT, () => console.log(`Server has been started on port ${PORT}`));
