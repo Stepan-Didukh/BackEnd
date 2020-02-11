@@ -3,15 +3,16 @@ const dataBase = require('../../dataBase').getInstance();
 module.exports = async (req, res) => {
     try {
 
-        const User = dataBase.getModel('User');
-        const id = req.params.user_id;
+        const Room = dataBase.getModel('Room');
+        const id = req.params.room_id;
 
-        await User.destroy({
+        await Room.destroy({
             where: {
                 id:id
             }
         });
-        res.json('User was deleted');
+
+        res.json('Room was deleted');
 
     } catch (e) {
         console.log(e);
