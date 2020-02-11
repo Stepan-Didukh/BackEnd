@@ -8,4 +8,6 @@ router.get('/findAllUser', user.findAllUser);
 
 router.delete('/:user_id',user.deleteUser);
 
+router.patch('/:user_id',user.updateUser);
+
 module.exports = router;
