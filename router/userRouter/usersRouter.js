@@ -6,4 +6,6 @@ router.post('/',userMiddleware.checkUserValidityMiddleware, user.createUser);
 
 router.get('/findAllUser', user.findAllUser);
 
+router.delete('/:user_id',user.deleteUser);
+
 module.exports = router;
