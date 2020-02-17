@@ -19,10 +19,23 @@ module.exports = (sequelize,DataTypes) =>{
             allowNull: false,
 
         },
+        nameRoom:{
+            type: DataTypes.STRING,
+            allowNull: false
+        },
+        about:{
+            type: DataTypes.STRING,
+            allowNull: false
+        },
+        park:{
+            type: DataTypes.STRING,
+            allowNull: false
+        },
         status_id:{
             type: DataTypes.INTEGER,
             allowNull: false
         }
+
 
     },{
         tableName: 'rooms',
