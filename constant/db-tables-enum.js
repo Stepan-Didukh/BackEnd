@@ -3,4 +3,5 @@ module.exports ={
     ROLE: 'Role',
     USER:'User',
     USER_STATUS:'UserStatus',
+    ROOM:'Room',
 };

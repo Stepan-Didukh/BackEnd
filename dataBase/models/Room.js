@@ -17,7 +17,6 @@ module.exports = (sequelize,DataTypes) =>{
         amount: {
             type: DataTypes.STRING,
             allowNull: false,
-
         },
         nameRoom:{
             type: DataTypes.STRING,
@@ -30,6 +29,14 @@ module.exports = (sequelize,DataTypes) =>{
         park:{
             type: DataTypes.STRING,
             allowNull: false
+        },
+        photo_path: {
+            type: DataTypes.STRING,
+            allowNull: true
+        },
+        created_at: {
+            type: DataTypes.DATE,
+            defaultValue: sequelize.fn('now')
         },
         status_id:{
             type: DataTypes.INTEGER,

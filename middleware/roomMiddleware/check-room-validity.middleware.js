@@ -4,7 +4,7 @@ module.exports = (req,res,next) => {
 
     try {
         const room = req.body;
-        roomValidators.newRoomValidator(room);
+        // roomValidators.newRoomValidator(room);
 
         next()
     }   catch (e) {

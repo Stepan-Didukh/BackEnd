@@ -1,18 +1,28 @@
 const express = require('express');
 const socketio = require('socket.io');
 const http = require('http');
-
+const {resolve} = require('path');
+const fileUpload = require('express-fileupload');
 const PORT = process.env.PORT || 5000;
-
 const app = express();
 const server = http.createServer(app);
 const io = socketio(server);
 const db = require('./dataBase').getInstance();
-
 db.setModels();
+
+
+
+app.use(fileUpload({}));
+
 
 app.use(express.json());
 app.use(express.urlencoded({extended: true}));
+
+app.use(express.static(resolve(__dirname,'public')));
+global.appRoot = __dirname;
+
+
+
 app.use(function (req, res, next) {
     res.header("Access-Control-Allow-Origin", "*");
     res.header("Access-Control-Allow-Credentials", true);
@@ -30,7 +40,6 @@ io.on('connection', (socket) => {
 });
 
 let {usersRouter, authRouter, adminRouter, roomsRouter} = require('./router');
-
 app.use('/user', usersRouter);
 app.use('/auth', authRouter);
 app.use('/admin', adminRouter);

@@ -1,8 +1,12 @@
 const router = require('express').Router();
 const {room} = require('../../controllers');
-const {room: roomMiddleware } = require('../../middleware');
+const {room: roomMiddleware,file: filesMiddleware } = require('../../middleware');
 
-router.post('/',roomMiddleware.checkValidityRoomMddleware, room.createRoom);
+
+router.post('/',roomMiddleware.checkValidityRoomMddleware,
+
+    filesMiddleware.checkFileMiddleware,
+    room.createRoom);
 
 router.get('/findAll', room.findAll);
 
