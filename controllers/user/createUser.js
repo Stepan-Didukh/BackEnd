@@ -15,8 +15,7 @@ module.exports = async (req, res) => {
 
         await usersService.createUser(userToCreate, user_id);
 
-
-        res.render('login');
+        res.json('created');
 
     } catch (e) {
         res.status(400).json(e.message);

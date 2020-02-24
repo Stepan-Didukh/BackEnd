@@ -6,7 +6,7 @@ const {room: roomMiddleware,file: filesMiddleware } = require('../../middleware'
 router.post('/',roomMiddleware.checkValidityRoomMddleware,
 
     filesMiddleware.checkFileMiddleware,
-    room.createRoom);
+    room.createRoom,);
 
 router.get('/findAll', room.findAll);
 

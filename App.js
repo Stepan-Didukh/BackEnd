@@ -10,7 +10,7 @@ const io = socketio(server);
 const db = require('./dataBase').getInstance();
 db.setModels();
 
-
+app.set('view engine','ejs');
 
 app.use(fileUpload({}));
 
