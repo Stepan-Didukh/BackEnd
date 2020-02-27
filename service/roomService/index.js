@@ -3,5 +3,5 @@ const updateRoomByParams = require('./updateRoomByParams');
 
 module.exports = {
     createRoom,
-    updateRoomByParams
+    updateRoomByParams,
 };

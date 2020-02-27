@@ -8,7 +8,12 @@ router.post('/',roomMiddleware.checkValidityRoomMddleware,
     filesMiddleware.checkFileMiddleware,
     room.createRoom,);
 
+
+router.get('/showAllPhoto',room.showAllPhoto);
+
 router.get('/findAll', room.findAll);
+
+router.patch('/reserve/:room_id',room.reserveRoom);
 
 router.delete('/:room_id',room.deleteRoom);
 
