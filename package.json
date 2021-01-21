@@ -27,7 +27,7 @@
     "@types/express-handlebars": "^0.0.33",
     "@types/sequelize": "^4.28.5",
     "jsonwebtoken": "^8.5.1",
-    "socket.io": "^2.3.0",
+    "socket.io": "^2.4.0",
     "@types/fs-extra": "^8.1.0",
     "@types/express-fileupload": "^1.1.0"
   }
